@@ -1,0 +1,342 @@
+/* ============ Basic Css ========== */
+
+@font-face {
+    font-family: comfortaa;
+    src: url(../fonts/Comfortaa-Light.woff2);
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: comfortaa;
+    src: url(../fonts/Comfortaa-Regular.woff2);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: comfortaa;
+    src: url(../fonts/Comfortaa-Bold.woff2);
+    font-weight: 700;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-body: rgb(18, 0, 31);
+    --color-text: rgb(255, 255, 255);
+    --color-primary: rgb(149, 0, 255);
+    --glow-text: 2px 2px 20px var(--color-primary);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    font-family: 'comfortaa', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    background-color: var(--color-body);
+
+}
+
+.container {
+    width: min(95%, 1200px);
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*================ button ============== */
+.btn {
+    display: block;
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    margin: 2rem 0;
+}
+
+.btn--outline {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.btn--outline:hover {
+    background-color: rgba(149, 0, 255, .08);
+    border: 1px solid rgba(149, 0, 255, 0.3);
+    text-shadow: var(--glow-text);
+    box-shadow: inset 0 0 20px rgba(149, 0, 255, 0.5);
+
+
+}
+
+.btn--primary {
+    background: linear-gradient(7deg, rgb(149, 0, 255)0%, rgb(48, 0, 82)100%);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn--primary:hover {
+    background: rgba(225, 225, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+
+}
+
+
+/* ================ header  =================== */
+header {
+    position: relative;
+    height: 100vh;
+}
+
+/* ================ Nav bar =================== */
+.nav-bar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+
+    padding: 1.5rem 2rem;
+}
+
+/* Navbarlogo */
+
+.nav__logo a {
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: var(--glow-text);
+    transition: .3s;
+}
+
+.nav__logo a:hover {
+
+    text-shadow: 2px 2px 40px var(--color-primary);
+}
+
+
+
+/* navbar link and menue */
+
+.nav__links {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    width: 100%;
+
+    transform: translateY(-10px);
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.35s ease,
+        transform 0.4s ease,
+        margin-top 0.4s ease;
+
+}
+
+.nav__links.active {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 2rem;
+    transform: translateY(0);
+}
+
+.nav__links li a {
+    align-items: center;
+    border-top: 1px solid #cccccc1e;
+    display: flex;
+    gap: 10px;
+    padding: 1rem;
+    width: 100%;
+    transition: text-shadow .2s;
+
+
+}
+
+.nav__links li a:hover {
+    text-shadow: var(--glow-text);
+
+
+
+}
+
+.nav__links li svg {
+    margin-right: 0rem;
+    transition: .3s, color .5s;
+
+}
+
+.nav__links li:hover svg {
+    margin-right: 1rem;
+    color: var(--color-primary);
+
+}
+
+.menu-icon {
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.nav-bar:has(.nav__links.active) .menu-icon,
+.menu-icon:hover {
+    color: var(--color-primary);
+}
+
+@media screen and (min-width: 800px) {
+    .nav-bar {
+        padding: 0;
+        flex-wrap: nowrap;
+        padding: 2rem;
+
+    }
+
+
+    .nav__links {
+        max-height: none;
+        opacity: 1;
+        transform: none;
+
+        margin-top: 0;
+        width: fit-content;
+        display: flex;
+        padding: 0;
+        font-size: 1.5rem;
+
+        overflow: visible;
+
+    }
+
+    .nav__links li a {
+        border: none;
+        padding: 0 1.2rem;
+
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .nav__links li:hover svg {
+        margin-right: .3rem;
+        color: var(--color-primary);
+
+    }
+
+
+
+}
+
+/* ================= hero section =============== */
+
+
+.hero {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+}
+
+.hero__image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero__content {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+
+}
+
+.hero__eyebrow {
+    font-size: 1.4rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.2rem;
+    border-radius: 5rem;
+    margin-bottom: .5rem;
+}
+
+.hero__content h1 {
+    margin: 0;
+    margin-bottom: 2rem;
+    letter-spacing: 5px;
+}
+
+.hero__content h2 {
+    font-size: 2rem;
+}
+
+.hero__content .btn {
+    margin-inline: 2rem;
+}
+
+.hero__content p {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+}
+
+@media screen and (min-width: 800px) {
+    .hero__content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: left;
+    }
+
+    .hero__content .btn {
+        margin-inline: 0;
+        display: inline-block;
+    }
+
+    .hero__content p {
+        max-width: 500px;
+    }
+}
